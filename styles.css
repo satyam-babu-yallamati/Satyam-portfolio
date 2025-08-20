@@ -175,3 +175,62 @@ body{
 /* ===== Utilities ===== */
 .about-points{list-style:none; padding:0; margin:12px 0; display:grid; gap:8px; color:var(--muted)}
 .about-cta{display:flex; gap:10px; margin-top:12px}
+/* ===== Tool Logos ===== */
+.tool-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;      /* smooth edges */
+  object-fit: contain;     /* keep aspect ratio */
+  background: #fff;        /* helps logos with transparent bg */
+  padding: 3px;            /* space around */
+}
+
+.badges li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.badges li:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+.card-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card-footer .btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  background: #3b82f6;   /* blue background */
+  color: white;
+  text-decoration: none;
+}
+
+.card-footer .btn:hover {
+  background: #2563eb;   /* darker blue */
+}
+
+.card-footer .btn.secondary {
+  background: transparent;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+}
+
+.card-footer .btn.secondary:hover {
+  background: #3b82f6;
+  color: white;
+}
