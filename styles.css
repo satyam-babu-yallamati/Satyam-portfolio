@@ -129,21 +129,52 @@ body{
 .card-actions{display:flex; gap:8px}
 .card .btn[aria-disabled="true"]{opacity:.7; cursor:not-allowed}
 
-/* NEW: Watch Video overlay */
-.card::after {
-  content: "▶ Watch Video";
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: bold;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;}
+/* ===== Unified Project Buttons ===== */
+.card-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card-footer .btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #081018;
+  box-shadow: var(--glow);
+}
+
+/* Hover effect */
+.card-footer .btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+}
+
+/* Visited links should look the same */
+.card-footer .btn:visited {
+  color: #081018;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+
+/* Secondary style (outline button) */
+.card-footer .btn.secondary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.card-footer .btn.secondary:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #081018;
+  box-shadow: var(--glow);
+}
 
 /* ===== Skills ===== */
 .skill-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
