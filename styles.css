@@ -129,51 +129,23 @@ body{
 .card-actions{display:flex; gap:8px}
 .card .btn[aria-disabled="true"]{opacity:.7; cursor:not-allowed}
 
-/* ===== Unified Project Buttons ===== */
-.card-footer {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.card-footer .btn {
-  flex: 1;
-  text-align: center;
-  padding: 10px 16px;
-  border-radius: 12px;
-  font-weight: 700;
+/* Common style for both buttons */
+.project-card .btn {
+  background-color: #6a0dad;  /* Dark Purple */
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.3s;
   text-decoration: none;
-  transition: all 0.25s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #081018;
-  box-shadow: var(--glow);
+  display: inline-block;
 }
 
 /* Hover effect */
-.card-footer .btn:hover {
+.project-card .btn:hover {
+  background-color: #8a2be2;  /* Lighter Purple */
   transform: translateY(-2px);
-  background: linear-gradient(135deg, var(--accent2), var(--accent));
-}
-
-/* Visited links should look the same */
-.card-footer .btn:visited {
-  color: #081018;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-}
-
-/* Secondary style (outline button) */
-.card-footer .btn.secondary {
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  box-shadow: none;
-}
-
-.card-footer .btn.secondary:hover {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #081018;
-  box-shadow: var(--glow);
 }
 
 /* ===== Skills ===== */
