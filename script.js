@@ -51,10 +51,31 @@ document.querySelectorAll('header nav a, .cta, .btn.primary[href^="#"]').forEach
   });
 });
 
-// Demo contact handler
+// ✅ Contact form handler (Google Sheets integration)
 function sendMessage(e){
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  alert(`Thanks ${data.name}! I will reply to ${data.email}.`);
-  e.target.reset();
+  const form = e.target;
+
+  // Replace this with your Google Apps Script deployed Web App URL
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwiK9isj1UdyPu8GctQM-s64gdg_m1ydZM_ygQhw0fuJeflo1jQ2iQ9SWediHsxsLtl/exec";
+
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(response => {
+    if (response.ok) {
+      alert(`✅ Thanks ${data.name}! Your message was submitted.`);
+      form.reset();
+    } else {
+      alert("⚠️ Something went wrong. Please try again.");
+    }
+  })
+  .catch(error => {
+    console.error("❌ Error!", error);
+    alert("⚠️ Error submitting form.");
+  });
 }
