@@ -183,35 +183,41 @@
         <p>GitHub: <a href="https://github.com/satyam-babu-yallamati">GitHub Profile</a></p>
         </ul>
       </div>
-      <form name="submit-to-google-sheet" class="contact-form"  onsubmit="sendMessage(event)">
-        <label>
-          <span>Name</span>
-          <input type="text" name="name" required placeholder="Your name" />
-        </label>
-        <label>
-          <span>Email</span>
-          <input type="email" name="email" required placeholder="you@example.com" />
-        </label>
-        <label class="full">
-          <span>Message</span>
-          <textarea name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-        </label>
-        <button class="btn primary" type="submit">Send Message</button>
-        <p class="form-note">This demo form uses client-side validation only.</p>
-      </form>
-    </div>
-  </section>
+<form name="submit-to-google-sheet" class="contact-form">
+  <label>
+    <span>Name</span>
+    <input type="text" name="name" required placeholder="Your name" />
+  </label>
+  <label>
+    <span>Email</span>
+    <input type="email" name="email" required placeholder="you@example.com" />
+  </label>
+  <label class="full">
+    <span>Message</span>
+    <textarea name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+  </label>
+  <button class="btn primary" type="submit">Send Message</button>
+  <p class="form-note">This demo form uses client-side validation only.</p>
+</form>
+
 <script>
-  const scriptURL = '<https://script.google.com/macros/s/AKfycbwiK9isj1UdyPu8GctQM-s64gdg_m1ydZM_ygQhw0fuJeflo1jQ2iQ9SWediHsxsLtl/exec>'
-  const form = document.forms['submit-to-google-sheet']
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwiK9isj1UdyPu8GctQM-s64gdg_m1ydZM_ygQhw0fuJeflo1jQ2iQ9SWediHsxsLtl/exec";
+  const form = document.forms['submit-to-google-sheet'];
 
   form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        alert("✅ Successfully Submitted!");
+        form.reset();
+      })
+      .catch(error => {
+        console.error("❌ Error!", error.message);
+        alert("⚠️ Submission failed. Try again.");
+      });
+  });
 </script>
+
   <footer class="footer">
     <div class="container">
       <p>© 2025 Yallamati Satyam Babu • Data Analyst Portfolio</p>
