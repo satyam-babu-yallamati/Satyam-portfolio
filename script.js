@@ -52,26 +52,23 @@ document.querySelectorAll('header nav a, .cta, .btn.primary[href^="#"]').forEach
 });
 
 // ✅ Contact form handler (Google Sheets integration)
-function sendMessage(e){
+function sendMessage(e) {
   e.preventDefault();
   const form = e.target;
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwiK9isj1UdyPu8GctQM-s64gdg_m1ydZM_ygQhw0fuJeflo1jQ2iQ9SWediHsxsLtl/exec";
+  const scriptURL = "YOUR_DEPLOYED_WEB_APP_URL"; // paste from Google Apps Script
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: new FormData(form)   // ✅ send as FormData (not JSON)
-  })
-  .then(response => {
-    if (response.ok) {
-      alert(`✅ Thanks ${form.name.value}! Your message was submitted.`);
-      form.reset();
-    } else {
-      alert("⚠️ Something went wrong. Please try again.");
-    }
-  })
-  .catch(error => {
-    console.error("❌ Error!", error);
-    alert("⚠️ Error submitting form.");
-  });
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then(response => {
+      if (response.ok) {
+        alert("✅ Thanks! Your message was submitted successfully.");
+        form.reset();
+      } else {
+        alert("⚠️ Submission failed. Try again later.");
+      }
+    })
+    .catch(error => {
+      console.error("❌ Error!", error);
+      alert("⚠️ Error submitting form.");
+    });
 }
