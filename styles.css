@@ -294,18 +294,13 @@ body{
   }
 
   /* Projects */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem; /* spacing between cards */
-}
-
-.card img {
-  width: 100%;
-  height: 200px;      /* fixed height */
-  object-fit: cover;  /* crop image neatly */
-  border-radius: 8px; /* optional, for smooth corners */
-}
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .card img {
+    height: auto;
+    max-height: 200px;
+  }
 
   /* Skills */
   .skill-grid {
